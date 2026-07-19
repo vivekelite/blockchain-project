@@ -1,0 +1,27 @@
+{
+	"name": "be-project",
+	"version": "1.0.0",
+	"private": true,
+	"description": "Monorepo root for BE project",
+	"license": "MIT",
+	"scripts": {
+		"start-all": "concurrently \"npm run blockchain\" \"npm run backend\" \"npm run frontend\"",
+		"blockchain": "cd decentralized-ambulance-system/blockchain && npx hardhat node",
+		"deploy": "cd decentralized-ambulance-system/blockchain && npx hardhat run scripts/deploy.js --network localhost",
+		"backend": "cd decentralized-ambulance-system/backend && npm start",
+		"frontend": "cd decentralized-ambulance-system/frontend && npm run dev"
+	},
+	"devDependencies": {
+		"@types/react": "^19.2.4",
+		"@types/react-dom": "^19.2.3",
+		"concurrently": "^8.2.2",
+		"hardhat": "^3.9.0"
+	},
+	"dependencies": {
+		"ethers": "^6.15.0",
+		"framer-motion": "^12.24.11"
+	},
+	"allowScripts": {
+		"esbuild@0.28.1": true
+	}
+}
